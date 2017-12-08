@@ -4,6 +4,14 @@ use std::io;
 use std::cmp::Ordering;
 use rand::Rng;
 
+fn fib(n: i32) -> i32 {
+    if n <= 2 {
+        return n;
+    } else {
+        return fib(n - 1) + fib(n - 2);
+    }
+}
+
 fn main() {
     println!("Guess it!");
 
@@ -32,4 +40,7 @@ fn main() {
         }
     }
     println!("Yes, the secret num is {}", secret_number);
+
+    println!("fib(45) = {}", fib(45));
 }
+
