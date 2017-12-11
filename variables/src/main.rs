@@ -16,4 +16,7 @@ fn main() {
     // m = 9;
     //     16 |     m = 9;
     //    |         ^ expected &str, found integral variable
+
+    let va :i32 = "21".parse().expect("what is this");
+    println!("va is {}", va);
 }
