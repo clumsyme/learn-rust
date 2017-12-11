@@ -12,6 +12,8 @@ fn main() {
     let z = z + 1;
     println!("z is {}", z);
 
-    let mut m = "hello";
-    m = 9;
+    // let mut m = "hello";
+    // m = 9;
+    //     16 |     m = 9;
+    //    |         ^ expected &str, found integral variable
 }
