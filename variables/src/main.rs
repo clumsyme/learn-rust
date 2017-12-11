@@ -7,4 +7,8 @@ fn main() {
 
     const Y: i32 = 9;
     println!("constant Y is {}", Y);
+
+    let z = 12;
+    let z = z + 1;
+    println!("z is {}", z);
 }
