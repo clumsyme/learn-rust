@@ -3,5 +3,8 @@ fn main() {
     println!("x is {}", x);
 
     x = 6;
-    print!("now x is {}", x);
+    println!("now x is {}", x);
+
+    const Y: i32 = 9;
+    println!("constant Y is {}", Y);
 }
