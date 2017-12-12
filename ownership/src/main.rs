@@ -50,6 +50,19 @@ fn main() {
     let mut mus = String::from("I can be borrowed");
     borrow_mutable(&mut mus);
     println!("after borrow and mut, mus is {}", mus);
+
+    let mut onlyone = String::from("hello");
+    {
+        // we can borrow it from lower scope,while the higher has no borrow now
+        let borrowagain = &mut onlyone;
+    }
+    // and borrow in higher scope cause in this scope it's not borrowed yet
+    let notonlyone = &mut onlyone;
+    // we can only borrow mutable in scope once, the followed code will not work
+    // let butonlytwo = &mut onlyone;
+    // {
+    //     let scopeborrow = &mut onlyone;
+    // }
 }
 
 fn take_ownership(some_string: String) {
