@@ -63,6 +63,8 @@ fn main() {
     // {
     //     let scopeborrow = &mut onlyone;
     // }
+    // in fact, once we have a borrow, either mut or unmut,
+    // we cannot borrow mut once again
 }
 
 fn take_ownership(some_string: String) {
@@ -95,4 +97,15 @@ fn borrow_mutable(some_string: &mut String) {
 
 fn copy_it(some_num: i32) {
     println!("{}", some_num);
+}
+
+// fn cant_return_ref() -> &String {
+//     let s = String::from("ok");
+//     &s
+// } after the function call, s is gone, the refer may cause a dangling pointer, it's *forbidden*
+
+
+fn can_return() -> String {
+    let s = String::from("ok");
+    s
 }
