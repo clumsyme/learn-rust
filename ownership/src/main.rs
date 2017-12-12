@@ -42,8 +42,14 @@ fn main() {
     println!("{}'s length is {}", mores, len);
 
     // but is this not so convenient，we can use *reference*
+    // in this way we cannot edit it
     take_reference(&mores);
     println!("after take reference, mores is {}", mores);
+
+    // how about we want to edit it?
+    let mut mus = String::from("I can be borrowed");
+    borrow_mutable(&mut mus);
+    println!("after borrow and mut, mus is {}", mus);
 }
 
 fn take_ownership(some_string: String) {
@@ -69,6 +75,10 @@ fn take_reference(some_string: &String) { // s is a reference to a String
     println!("got reference: {}", some_string);
 } // Here, s goes out of scope. But because it does not have ownership of what
   // it refers to, nothing happens.
+
+fn borrow_mutable(some_string: &mut String) {
+    some_string.push_str(", waoo");
+}
 
 fn copy_it(some_num: i32) {
     println!("{}", some_num);
