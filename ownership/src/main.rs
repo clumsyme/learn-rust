@@ -65,6 +65,7 @@ fn take_and_give_more(some_string: String) -> (String, usize) {
 }
 
 fn take_reference(some_string: &String) { // s is a reference to a String
+    // some_string.push_str(", waoo"); we cant editable a borrow variable
     println!("got reference: {}", some_string);
 } // Here, s goes out of scope. But because it does not have ownership of what
   // it refers to, nothing happens.
