@@ -41,6 +41,9 @@ fn main() {
     let (mores, len) = take_and_give_more(mores);
     println!("{}'s length is {}", mores, len);
 
+    // but is this not so convenient，we can use *reference*
+    take_reference(&mores);
+    println!("after take reference, mores is {}", mores);
 }
 
 fn take_ownership(some_string: String) {
@@ -52,7 +55,7 @@ fn give_ownership() -> String {
     s
 }
 
-fn take_and_give_ownership(some_string:String) -> String {
+fn take_and_give_ownership(some_string: String) -> String {
     some_string
 }
 
@@ -60,6 +63,11 @@ fn take_and_give_more(some_string: String) -> (String, usize) {
     let len = some_string.len();
     (some_string, len)
 }
+
+fn take_reference(some_string: &String) { // s is a reference to a String
+    println!("got reference: {}", some_string);
+} // Here, s goes out of scope. But because it does not have ownership of what
+  // it refers to, nothing happens.
 
 fn copy_it(some_num: i32) {
     println!("{}", some_num);
