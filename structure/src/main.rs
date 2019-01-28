@@ -20,6 +20,21 @@ fn build_user(username: String) -> User {
     }
 }
 
+#[derive(Debug)]
+struct Rect {
+    width: u32,
+    height: u32,
+}
+
+impl Rect {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+    fn square(size: u32) -> Rect {
+        Rect {width: size, height: size}
+    }
+}
+
 fn main() {
     let user1 = User {
         email: String::from("obama@me.com"),
@@ -53,4 +68,10 @@ fn main() {
     println!("{}", user4.username);
 
     let black = Color(0, 0, 0);
+
+    let rect = Rect {width: 300, height: 400};
+    println!("{}", rect.area());
+
+    let sq = Rect::square(50);
+    println!("square area is {}", sq.area());
 }
